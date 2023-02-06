@@ -1,0 +1,20 @@
+.fixed-header {
+  position: fixed;
+  top: 0;
+  animation: dropHeader 0.2s;
+}
+
+@keyframes dropHeader {
+  0% {
+    top: -1rem;
+  }
+
+  100% {
+    top: 0;
+  }
+}
+
+.fixed-cate {
+  margin-bottom: 40px;
+}
+
