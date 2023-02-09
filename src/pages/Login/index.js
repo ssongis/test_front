@@ -2,8 +2,9 @@ import React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 
-import { CommonWrapper } from '../../../styles/style';
+import { CommonWrapper } from '@/styles/style';
 import styled from 'styled-components';
+import axios from 'axios';
 
 const User_Area = [
   {
@@ -35,13 +36,16 @@ export const LoginWrapper = styled.main`
     padding: 40px 0;
     font-size: 15px;
   }
+  // logo
   h2 {
     margin-bottom: 30px;
     cursor: pointer;
   }
+  // email, password form
   form {
     width: 300px;
   }
+  
   input {
     display: block;
     width: 100%;
@@ -50,7 +54,7 @@ export const LoginWrapper = styled.main`
     line-height: 21px;
     resize: none;
     transition: 0.2s box-shadow, 0.2s background-color;
-    padding: 13px 15px 14px;
+    padding: 14px 15px 14px;
     box-sizing: border-box;
     &:hover {
       background-color: #fafafa;
@@ -73,7 +77,7 @@ export const LoginWrapper = styled.main`
     margin: 20px 0;
     width: 100%;
     padding: 15px 10px;
-    font-size: 17px;
+    font-size: 18px;
     min-height: 50px;
     background-color: var(--base-color-blue);
     border: none;
@@ -92,12 +96,14 @@ export const LoginWrapper = styled.main`
   section {
     text-align: center;
   }
+  // sns 계정 line
   section .desc {
     margin: 35px 0 15px;
     color: #757575;
     font-size: 12px;
     line-height: 1.33;
   }
+  // 아이콘
   section a {
     margin-right: 20px;
     color: inherit;
@@ -108,20 +114,12 @@ export const LoginWrapper = styled.main`
   .help {
     margin-top: 24px;
     color: #c2c8cc;
-    font-size: 14px;
+    font-size: 13px;
     line-height: 18px;
     cursor: pointer;
   }
-  .non-member {
-    width: 100%;
-    margin: 40px 0 20px;
-    padding-top: 20px;
-    line-height: 1.4;
-    color: #424242;
-    border-top: 1px solid #dbdbdb;
-    text-align: center;
-  }
 `;
+
 export const Footer = styled.footer`
   width: 100%;
   color: #757575;
@@ -146,9 +144,10 @@ function Login() {
         <LoginWrapper>
           <div className="loginInn">
             <h2>
-              <Link href="/">
+              <Link href="/" legacyBehavior>
                 <a>
-                  <svg width="147" height="50">
+                  {/* 오늘의 집 로고 */}
+                  {/* <svg width="147" height="50">
                     <g fill="none">
                       <path
                         fill="var(--base-color-blue)"
@@ -163,7 +162,7 @@ function Login() {
                         <path d="M120.65 8.5c-.93 0-1.69.75-1.69 1.68v20.6c-2.23.69-6.66 1.3-12.04 1.3h-2.57a1.68 1.68 0 1 0 0 3.37h2.57c3.07 0 8.37-.27 12.05-1.19v5.6a1.68 1.68 0 0 0 3.37 0V10.19c0-.93-.76-1.69-1.69-1.69"></path>
                       </g>
                     </g>
-                  </svg>
+                  </svg> */}
                 </a>
               </Link>
             </h2>
@@ -186,7 +185,7 @@ function Login() {
                 <button type="submit">로그인</button>
                 <section className="userArea">
                   {User_Area.map(user => (
-                    <Link key={user.id} href={user.path}>
+                    <Link key={user.id} href={user.path} legacyBehavior>
                       <a>{user.name}</a>
                     </Link>
                   ))}
@@ -224,8 +223,7 @@ function Login() {
                     </g>
                   </svg>
                 </a>
-                <a>
-                  <a>
+                <a>            
                     <svg width="48" height="48">
                       <g fill="none">
                         <path
@@ -238,12 +236,10 @@ function Login() {
                         ></path>
                       </g>
                     </svg>
-                  </a>
                 </a>
               </div>
             </section>
             <p className="help">로그인에 문제가 있으신가요?</p>
-            <p className="non-member">비회원 주문 조회하기</p>
           </div>
         </LoginWrapper>
         <Footer>© bucketplace, Co., Ltd.. All Rights Reserved</Footer>
@@ -253,9 +249,10 @@ function Login() {
 }
 
 Login.getInitialProps = async ctx => {
-  const pathname = ctx.pathname;
+  const pathname = ctx.pathname; //현재 경로
 
   return { pathname };
+  
 };
 
 export default Login;

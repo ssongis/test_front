@@ -1,28 +1,18 @@
 import SectionMain from './SectionMain';
-import SectionNav from './SectionNav';
 import SectionStory from './SectionStory';
-import SectionCate from './SectionCate';
-import SectionDeal from './SectionDeal';
-import SectionPPL from './SectionPPL';
 import SectionReview from './SectionReview';
-import SectionExhibition from './SectionExhibition';
-import SectionPremium from './SectionPremium';
-import SectionBest from './SectionBest';
-import { MainBlock } from './main.styles';
-import * as S from './main.styles';
+import { MainBlock, Section } from './main.styles';
+import Footer from '../Footer';
+import Header from '../Header/Header';
+
 function Main() {
   return (
     <MainBlock>
+      <Header/>
       <SectionMain />
-      <SectionNav />
       <SectionStory />
-      <SectionCate />
-      <SectionDeal />
-      <SectionPPL />
       <SectionReview />
-      <SectionExhibition />
-      <SectionPremium />
-      <SectionBest />
+      <Footer/>
     </MainBlock>
   );
 }

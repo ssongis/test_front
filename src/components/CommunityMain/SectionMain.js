@@ -192,11 +192,11 @@ export default class SectionMain extends Component {
       <Section>
         <div className="img-area">
           <div className="main-img">
-            <Image src="/community-main/mainImg.jpg" alt="main" layout="fill" />
+            <Image src="/community-main/jachiroom.jpeg" alt="main" layout="fill" />
           </div>
           <div className="img-title">
             <div className="title">
-              <h3>40년 넘은 구옥, 의미있는 신혼집으로-</h3>
+              <h3>자취생들을 위한 커뮤니티 자취러</h3>
               <div className="profile">
                 <span>
                   <Image
@@ -205,11 +205,8 @@ export default class SectionMain extends Component {
                     layout="fill"
                   />
                 </span>
-                <span>성수부부</span>
+                <span>나혼자산다</span>
               </div>
-            </div>
-            <div className="more">
-              <p>보러가기</p>
             </div>
           </div>
         </div>

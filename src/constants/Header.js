@@ -1,14 +1,14 @@
 export const MENU_DATA = [
   {
-    name: '커뮤니티',
+    name: '레시피',
     path: '/',
   },
   {
-    name: '스토어',
-    path: '/store',
+    name: '취미',
+    path: '/',
   },
   {
-    name: '이사/시공/수리',
+    name: '인테리어/시공',
     path: '/',
   },
 ];
@@ -42,34 +42,10 @@ export const CATE_LIST = [
   },
   {
     name: '사진',
-    path: '/Community/Picture',
-  },
-  {
-    name: '집들이',
-    path: '/Community/Party',
-  },
-  {
-    name: '노하우',
-    path: '/',
-  },
-  {
-    name: '전문가집들이',
-    path: '/',
-  },
-  {
-    name: '셀프가이드',
     path: '/',
   },
   {
     name: '질문과 답변',
-    path: '/',
-  },
-  {
-    name: '3D 인테리어',
-    path: '/',
-  },
-  {
-    name: '이벤트',
     path: '/',
   },
 ];

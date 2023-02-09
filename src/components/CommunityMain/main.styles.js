@@ -22,7 +22,7 @@ export const Section = styled.section`
   }
   .ul-area {
     width: 100%;
-    padding-top: 30px;
+    padding-top: 20px;
     position: relative;
     ul {
       display: flex;
@@ -80,17 +80,17 @@ export const Section = styled.section`
       }
     }
   }
-  // story 개별작업
+  // 최신글(stroy) 개별작업
   ${props => {
     if (props.story) {
       return css`
-        .story-wrap {
+        .story-wrap { // 최신글 메인 사진
           display: flex;
-          gap: 0 20px;
+          gap: 0 10px;
           padding-top: 20px;
         }
         .ul-area {
-          width: auto;
+          width: 100%;
           padding: 0;
           ul {
             li {
@@ -100,24 +100,24 @@ export const Section = styled.section`
             }
           }
         }
-        .ul-area ul li p {
-          font-size: 15px;
+        .ul-area ul li p { /
+          font-size: 17px;
           line-height: 20px;
           font-weight: 700;
           word-break: break-all;
           padding-bottom: 10px;
         }
-        .ul-area ul li > div:nth-child(2) {
-          padding: 15px 10px;
+        .ul-area ul li > div:nth-child(2) { // 사진과 list 사이 간격
+          padding: 15px 10px; // top, left
         }
-        .ul-area ul li div > div {
+        .ul-area ul li div > div { // 프로필 이름 
           display: flex;
           flex-direction: row;
           gap: 0 5px;
           align-items: center;
           font-size: 13px;
         }
-        .ul-area ul li div .profile {
+        .ul-area ul li div .profile { // 프로필 사이즈
           width: 22px;
           height: 22px;
           position: relative;
@@ -196,187 +196,8 @@ export const Section = styled.section`
       `;
     }
   }}
-  // cate 개별작업
-  ${props => {
-    if (props.cate) {
-      return css`
-        .ul-area {
-          ul {
-            padding: 20px 30px 0;
-            overflow: hidden;
-            li {
-              display: flex;
-              flex-direction: column;
-              align-items: center;
-              flex: 0 0 8%;
-              gap: 20px 0;
-              > span:nth-child(1) {
-                width: 89px;
-                position: relative;
-                img {
-                  &:hover {
-                    transform: scale(1);
-                  }
-                }
-              }
-            }
-          }
-          ul li span:last-child {
-            font-weight: 700;
-            font-size: 15px;
-            line-height: 20px;
-            color: #424242;
-          }
-          .btn-area {
-            width: 100%;
-            position: absolute;
-            top: 50%;
-            display: flex;
-            justify-content: space-between;
-            button {
-              width: 32px;
-              height: 32px;
-              background-color: rgba(0, 0, 0, 0.16);
-              border: none;
-              border-radius: 50%;
-              text-align: center;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              color: #fff;
-              .btn {
-                color: #fff;
-                font-size: 20px;
-                cursor: pointer;
-              }
-            }
-          }
-        }
-      `;
-    }
-  }}
-
-  // deal 개별작업
-  ${props => {
-    if (props.deal) {
-      return css`
-        div:nth-child(1) {
-          span {
-            font-weight: 700;
-          }
-        }
-        .ul-area {
-          ul {
-            flex-direction: row;
-            padding-top: 20px;
-            li {
-              div:nth-child(1) span {
-                border-radius: 6px;
-              }
-              .content {
-                padding: 9px 10px;
-                gap: 6px 0;
-                h3 {
-                  font-size: 11px;
-                  color: #757575;
-                }
-                p {
-                    line-height:17px;
-                  max-height: 30px;
-                }
-                div:nth-child(3) {
-                  display: flex;
-                  gap: 0 5px;
-                  font-weight: 700;
-                  font-size: 17px;
-                  line-height: 23px;
-                  strong {
-                    color: #f77;
-                  }
-                  span {
-                    color: #000;
-                  }
-                }
-                div:nth-child(4) {
-                    display: flex;
-                    align-items: center;
-                    svg {
-                      display: flex;
-                    width: 13px;
-                    height: 13px;
-                    color: var(--base-color-blue);
-                  }
-                  span: nth-child(2) {
-                      color: #424242;
-                      font-weight: 700;
-                      font-size: 12px;
-                      
-                    }
-                    span:nth-child(3) {
-                      margin-left:5px;
-                    font-size: 12px;
-                    color: #9e9e9e;
-                    font-weight: 700;
-                  }
-                }
-              }
-            }
-            }
-          }
-        }
-      `;
-    }
-  }}
-  // popular 개별작업
-  ${props => {
-    if (props.ppl) {
-      return css`
-        .ul-area {
-          ul {
-            flex-wrap: wrap;
-            gap: 20px;
-            li {
-              position: relative;
-              span:nth-child(1) {
-                &::after {
-                  width: 100%;
-                  height: 50%;
-                  content: '';
-                  display: block;
-                  position: absolute;
-                  left: 0;
-                  bottom: 0;
-                  background: linear-gradient(
-                    180deg,
-                    transparent,
-                    rgba(0, 0, 0, 0.2)
-                  );
-                  border-radius: 0 0 6px 6px;
-                }
-              }
-              div {
-                position: absolute;
-                bottom: 20px;
-                left: 20px;
-                span:nth-child(1) {
-                  width: 22px;
-                  height: 22px;
-                  border: 2px solid rgba(255, 255, 255, 0.7);
-                  border-radius: 100%;
-                }
-              }
-              span:nth-child(2) {
-                color: #fff;
-                font-size: 13px;
-                font-weight: 700;
-              }
-            }
-          }
-        }
-      `;
-    }
-  }}
-  // review 개별작업
+  
+  // 베스트 자취러(review) 개별작업
   ${props => {
     if (props.review) {
       return css`
@@ -430,104 +251,6 @@ export const Section = styled.section`
             strong {
               color: var(--base-color-blue);
               margin-right: 5px;
-            }
-          }
-        }
-      `;
-    }
-  }}
-  // best 개별작업
-  ${props => {
-    if (props.best) {
-      return css`
-        .ol-area {
-          padding-top: 10px;
-          overflow-x: scroll;
-          overflow-y: hidden;
-          ol {
-            display: flex;
-            flex-direction: row;
-            width: 2000px;
-            gap: 0 15px;
-
-            > li {
-              padding: 10px 15px;
-              font-size: 15px;
-              color: #757575;
-              font-weight: 700;
-            }
-            li:first-child {
-              color: var(--base-color-blue);
-            }
-          }
-        }
-        .ul-area {
-          padding-top: 10px;
-          ul {
-            li {
-              width: 269px;
-              > span:nth-child(1) {
-                display: flex;
-                height: 269px;
-                position: relative;
-                cursor: pointer;
-                span:nth-child(1) {
-                  border-radius: 6px;
-                }
-                > img {
-                  transition: transform 200s;
-                  &:hover {
-                    transform: scale(1.1);
-                  }
-                }
-              }
-              div {
-                padding: 15px 0;
-                display: flex;
-                flex-direction: column;
-                gap: 10px 0;
-                p {
-                  font-size: 13px;
-                  line-height: 120%;
-                }
-                span {
-                  font-size: 15px;
-                  font-weight: 700;
-                  strong {
-                    color: var(--base-color-blue);
-                    margin-right: 5px;
-                  }
-                }
-              }
-            }
-            li:last-child {
-              cursor: pointer;
-              height: 269px;
-              display: flex;
-              flex-direction: column;
-              font-size: 20px;
-              font-weight: 700;
-              color: #424242;
-              align-items: center;
-              justify-content: center;
-              gap: 15px 0;
-              background-color: #f5f5f5;
-              transition: background-color 0.2s;
-              border-radius: 6px;
-              span {
-                display: flex;
-                background-color: #fff;
-                border-radius: 50%;
-                width: 40px;
-                height: 40px;
-                align-items: center;
-                justify-content: center;
-                font-size: 30px;
-                box-shadow: 0 2px 4px 0 rgb(0 0 0 / 20%);
-              }
-              &:hover {
-                background-color: #ddd;
-              }
             }
           }
         }

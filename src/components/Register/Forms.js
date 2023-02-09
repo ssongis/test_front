@@ -1,28 +1,34 @@
 import React, { useState } from 'react';
-import { AGREE_DATA } from '../../constants/Register';
-
+import { AGREE_DATA } from '@/constants/Register';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 
 export const Forms = () => {
+  // 체크된 아이템 담을 배열
   const [checkItem, setCheckItem] = useState([]);
-
+  // 체크박스 단일 선택
   const handleSingleChk = (checked, id) => {
     if (checked) {
+      // 단일 선택 시 체크된 아이템을 배열에 추가
       setCheckItem(prev => [...prev, id]);
     } else {
+      // 단일 선택 해제 시 체크된 아이템을 제외한 배열(필터)
       setCheckItem(checkItem.filter(el => el !== id));
     }
   };
+  // 체크박스 전체 선택
   const handleAllChk = checked => {
     if (checked) {
+       // 전체 선택 클릭 시 데이터의 모든 아이템(id)를 담은 배열로 checkItems 상태 업데이트
       const idArray = [];
       AGREE_DATA.forEach(el => idArray.push(el.id));
       setCheckItem(idArray);
     } else {
+       // 전체 선택 해제 시 checkItems 를 빈 배열로 상태 업데이트
       setCheckItem([]);
     }
   };
+  // 입력 검증 yup,  / 최소,최대 입력값 / 입력되지 않으면 required(메시지)
   const validationSchema = yup.object().shape({
     email: yup.string().required('이메일을 입력해주세요.'),
     password: yup
@@ -46,14 +52,17 @@ export const Forms = () => {
   });
 
   const formik = useFormik({
+    // 회원가입 form, 최초 값, form에서 관리할 객체들
     initialValues: {
       email: '',
       password: '',
       confirm_password: '',
       username: '',
     },
+    // 유효성 검사
     validationSchema,
 
+    // submit 이벤트 발생 시 실행할 로직 기재
     onSubmit: values => {
       alert(JSON.stringify(values, null, 2));
     },
@@ -171,7 +180,7 @@ export const Forms = () => {
                     checkItem.length === AGREE_DATA.length ? true : false
                   }
                 />
-
+                
                 <span>
                   <strong>전체동의</strong>
                   <span>선택항목에 대한 동의 포함</span>

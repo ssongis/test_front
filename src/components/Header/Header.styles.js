@@ -1,64 +1,5 @@
 import styled from 'styled-components';
 
-// 배너
-export const BannerBlock = styled.div`
-  height: 50px;
-  display: block;
-  position: relative;
-  z-index: 1000;
-  .banner {
-    width: 50%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    :first-child {
-      left: 0;
-      background: #dc124e;
-    }
-    :nth-child(2) {
-      right: 0;
-      background: #00bbff;
-    }
-  }
-  .imgArea {
-    height: 100%;
-    padding: 0 60px;
-    display: flex;
-    max-width: 1156px;
-    margin: 0 auto;
-  }
-  .imgArea p {
-    height: 100%;
-    display: flex;
-    flex: 1 0 0;
-    position: relative;
-    background-repeat: no-repeat;
-    background-size: auto 100%;
-    background-position: center;
-    z-indx: 1;
-  }
-  .imgArea p:first-child {
-    background-image: url(https://bucketplace-v2-development.s3.amazonaws.com/uploads/store/banners/store_top_banners/166029634015620723.jpg);
-    background-color: #dc124e;
-  }
-  .imgArea p:nth-child(2) {
-    background-image: url(https://bucketplace-v2-development.s3.amazonaws.com/uploads/store/banners/store_top_banners/165383180311455316.png);
-    background-color: #00bbff;
-  }
-  button {
-    position: absolute;
-    top: 50%;
-    right: 8px;
-    transform: translate(-50%, -45%);
-    font-size: 27px;
-    color: #fff;
-    cursor: pointer;
-    border: none;
-    background: none;
-    padding: 0;
-    height: 28px;
-  }
-`;
 // 헤더전체
 export const HeaderWrap = styled.header`
   width: 100%;
@@ -96,8 +37,8 @@ export const H1 = styled.h1`
   width: 82px;
   height: 38px;
   overflow: hidden;
-  margin-right: 35px;
-  margin-top: 11px;
+  margin-right: 15px;
+  margin-top: 26px;
 `;
 // nav
 export const NavBlock = styled.ul`
@@ -118,6 +59,7 @@ export const NavBlock = styled.ul`
     line-height: 1;
     font-weight: 700;
     text-decoration: none;
+    list-style: none;
     .point {
       color: var(--base-color-blue);
     }
@@ -130,7 +72,7 @@ export const SearchBlock = styled.div`
   border: 1px solid #c2c8cc;
   border-radius: 4px;
   height: 40px;
-  padding: 0 14px;
+  padding: 0 12px 0 20px; 
   // align-items: center;
   span {
     width: 18px;
@@ -151,7 +93,7 @@ export const SearchBlock = styled.div`
     outline: none;
     color: #2f3438;
     box-sizing: border-box;
-    padding: 0 6px;
+    padding: 0 35px; // 통합검색 길이
     font-size: 16px;
     background-color: #fff;
     &::placeholder {
@@ -218,17 +160,7 @@ export const UserAreaBlock = styled.div`
     font-size: 18px;
   }
 `;
-//cart
-export const CartBlock = styled.div`
-  margin: 9px 1px;
-  padding: 6px;
-  color: #2f3438;
 
-  svg {
-    vertical-align: middle;
-    font-size: 24px;
-  }
-`;
 // 카테고리
 export const CateWrap = styled.div`
   width: 100%;
@@ -248,6 +180,7 @@ export const CateWrap = styled.div`
       li {
         color: #2f3438;
         cursor: pointer;
+        list-style: none;
         a:hover {
           color: var(--base-color-blue);
         }

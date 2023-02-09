@@ -1,9 +1,7 @@
 import Search from './Search';
-import Cart from './Cart';
 import Logo from './Logo';
 import UserArea from './UserArea';
 import Nav from './Nav';
-import Banner from './Banner';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { HeaderWrap, CateWrap } from './Header.styles';
@@ -30,14 +28,12 @@ function Header() {
   });
   return (
     <>
-      {remove ? <Banner onRemove={setRemove} /> : null}
       <HeaderWrap className={scroll ? 'fixed-header' : ''}>
         <div className="top">
           <Logo />
           <Nav />
           <div className="top-right">
             <Search />
-            <Cart />
             <UserArea />
           </div>
         </div>
@@ -48,7 +44,7 @@ function Header() {
             {CATE_LIST.map((data, i) => {
               return (
                 <li key={[i]}>
-                  <Link href={data.path}>
+                  <Link href={data.path} legacyBehavior>
                     <a>{data.name}</a>
                   </Link>
                 </li>

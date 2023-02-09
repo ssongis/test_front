@@ -8,8 +8,8 @@ const SectionReview = () => {
   return (
     <S.Section width={365} height={256} review>
       <div>
-        <h2>유저들의 인테리어 시공리뷰</h2>
-        <span>인테리어 전문가 더 찾기</span>
+        <h2>베스트 자취러</h2>
+        <span>더 많은 자취러 보기</span>
       </div>
       <div className="ul-area">
         <ul>

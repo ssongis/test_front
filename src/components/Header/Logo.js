@@ -3,9 +3,10 @@ import { H1 } from './Header.styles';
 function Logo() {
   return (
     <H1>
-      <Link href="/">
+      <Link href="/" legacyBehavior>
         <a>
-          <svg width="74" height="30">
+          {/* 로고 추가 하기 */}
+          {/* <svg width="74" height="30">
             <g fill="none">
               <path
                 fill="#000"
@@ -21,7 +22,7 @@ function Logo() {
                 d="M51.4.49c-.8 0-1.45.65-1.45 1.45v17.78c-1.93.6-5.75 1.13-10.38 1.13h-2.2a1.45 1.45 0 0 0 0 2.9h2.2c2.64 0 7.21-.23 10.38-1.02v4.84a1.45 1.45 0 0 0 2.9 0V1.94c0-.8-.65-1.45-1.45-1.45"
               ></path>
             </g>
-          </svg>
+          </svg> */}
         </a>
       </Link>
     </H1>

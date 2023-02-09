@@ -6,7 +6,7 @@ import { STORY_DATA, STORY_LIST } from '../../constants/communityMain';
 const SectionStory = () => {
   return (
     <S.Section story width={269}>
-      <h2>오늘의 스토리</h2>
+      <h2>최신글</h2>
       <div className="story-wrap">
         <div className="ul-area">
           <ul>
@@ -38,7 +38,7 @@ const SectionStory = () => {
             ))}
           </ul>
         </div>
-        <ol>
+        {/* <ol>
           {STORY_LIST.map((data, i) => (
             <li key={i}>
               <h3>{data.title}</h3>
@@ -48,7 +48,7 @@ const SectionStory = () => {
               </div>
             </li>
           ))}
-        </ol>
+        </ol> */}
       </div>
     </S.Section>
   );

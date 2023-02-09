@@ -2,7 +2,7 @@ import React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 
-import { CommonWrapper } from '../../../styles/style';
+import { CommonWrapper } from '@/styles/style';
 import { Forms } from '../../components/Register/Forms';
 import styled from 'styled-components';
 
@@ -17,21 +17,23 @@ export const RegisterWrapper = styled.main`
   }
   .text-danger {
     margin: 10px 0 0 5px;
-    font-size: 14px;
+    font-size: 13px;
     color: red;
   }
   /////////////////////////////
 
   section {
-    width: 360px;
+    width: 450px;
     margin: 60px auto;
-    h3 {
-      font-size: 20px;
+    // 회원가입
+    h3 { 
+      font-size: 25px;
       font-weight: 700;
     }
+    // sns 계정 로그인
     .sns-area {
-      margin: 30px 0;
-      padding-bottom: 30px;
+      margin: 30px;
+      padding-bottom: 20px;
       border-bottom: 1px solid #ededed;
       p {
         font-size: 12px;
@@ -39,18 +41,19 @@ export const RegisterWrapper = styled.main`
         margin: 15px 0;
         color: #757575;
       }
+      // sns logo 정렬
       ul {
         display: flex;
         justify-content: center;
-        gap: 0 20px;
+        gap: 0 25px;
       }
     }
     form {
       h4 {
         color: #2f3438;
         line-height: 20px;
-        font-weight: 700;
-        padding-bottom: 12px;
+        font-weight: 400;
+        padding-bottom: 5px;
       }
       .common-element {
         width: 100%;
@@ -74,7 +77,7 @@ export const RegisterWrapper = styled.main`
         padding-bottom: 30px;
       }
       p {
-        font-size: 14px;
+        font-size: 12px;
         padding-bottom: 10px;
         line-height: 18px;
         color: #828c94;
@@ -137,7 +140,7 @@ export const RegisterWrapper = styled.main`
           }
           span:nth-child(2) {
             display: flex;
-            gap: 0 5px;
+            gap: 0 5px;g
             align-items: center;
           }
           span > strong {
@@ -213,12 +216,14 @@ function Register() {
       <Head>
         <title>회원가입</title>
       </Head>
+
       <CommonWrapper>
         <RegisterWrapper>
           <h2>
-            <Link href="/">
+            <Link href="/" legacyBehavior>
               <a>
-                <svg width="88" height="31">
+                {/* 오늘의 집 로고 */}
+                {/* <svg width="88" height="31">
                   <g fill="none">
                     <path
                       fill="var(--base-color-blue)"
@@ -233,7 +238,7 @@ function Register() {
                       <path d="M72.64 5.096c-.56 0-1.016.452-1.016 1.01v12.358c-1.345.417-4.016.784-7.251.784h-1.546c-.56 0-1.015.452-1.015 1.01 0 .557.454 1.009 1.015 1.009h1.546c1.846 0 5.04-.161 7.251-.708v3.362c0 .558.455 1.01 1.016 1.01.56 0 1.015-.452 1.015-1.01V6.106c0-.558-.454-1.01-1.015-1.01"></path>
                     </g>
                   </g>
-                </svg>
+                </svg> */}
               </a>
             </Link>
           </h2>
@@ -296,7 +301,7 @@ function Register() {
               <Forms />
               <div className="help">
                 <p>이미 아이디가 있으신가요?</p>
-                <Link href="/Login">
+                <Link href="/Login" legacyBehavior>
                   <a>로그인</a>
                 </Link>
               </div>
@@ -308,6 +313,7 @@ function Register() {
   );
 }
 
+// 현재 페이지에서 사용할 공통 속성값을 지정
 Register.getInitialProps = async ctx => {
   const pathname = ctx.pathname;
 

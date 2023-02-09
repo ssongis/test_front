@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { MENU_DATA } from 'constants/Header';
+import { MENU_DATA } from '@/constants/Header';
 import { NavBlock } from './Header.styles';
 
 function Nav() {
@@ -9,7 +9,7 @@ function Nav() {
     <NavBlock>
       {MENU_DATA.map(menu => (
         <li key={menu.key}>
-          <Link href={menu.path}>
+          <Link href={menu.path} legacyBehavior>
             <a>{menu.name}</a>
           </Link>
         </li>
