@@ -38,7 +38,7 @@ function Header() {
           </div>
         </div>
       </HeaderWrap>
-      <CateWrap className={scroll ? 'fixed-cate' : ''}>
+      {/* <CateWrap className={scroll ? 'fixed-cate' : ''}>
         <div className="cate">
           <ul>
             {CATE_LIST.map((data, i) => {
@@ -52,7 +52,7 @@ function Header() {
             })}
           </ul>
         </div>
-      </CateWrap>
+      </CateWrap> */}
     </>
   );
 }

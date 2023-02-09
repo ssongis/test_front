@@ -4,7 +4,7 @@ import styled from 'styled-components';
 export const HeaderWrap = styled.header`
   width: 100%;
   margin: 0 auto;
-  padding: 13px 60px 12px;
+  padding: 13px 60px 25px;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -162,29 +162,29 @@ export const UserAreaBlock = styled.div`
 `;
 
 // 카테고리
-export const CateWrap = styled.div`
-  width: 100%;
-  padding: 5px 0;
-  border-bottom: 1px solid #eaedef;
-  .cate {
-    max-width: 1136px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-weight: 700;
-    ul {
-      display: flex;
-      padding: 12px 0;
-      gap: 15px;
-      li {
-        color: #2f3438;
-        cursor: pointer;
-        list-style: none;
-        a:hover {
-          color: var(--base-color-blue);
-        }
-      }
-    }
-  }
-`;
+// export const CateWrap = styled.div`
+//   width: 100%;
+//   padding: 5px 0;
+//   border-bottom: 1px solid #eaedef;
+//   .cate {
+//     max-width: 1136px;
+//     margin: 0 auto;
+//     display: flex;
+//     justify-content: space-between;
+//     align-items: center;
+//     font-weight: 700;
+//     ul {
+//       display: flex;
+//       padding: 12px 0;
+//       gap: 15px;
+//       li {
+//         color: #2f3438;
+//         cursor: pointer;
+//         list-style: none;
+//         a:hover {
+//           color: var(--base-color-blue);
+//         }
+//       }
+//     }
+//   }
+// `;
