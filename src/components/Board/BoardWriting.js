@@ -44,6 +44,7 @@ export const BoardWrapper = styled.main`
   font-size: 20px;
   padding: 10px 20px;
   border: none;
+  color: #fff;
   background-color: var(--base-color-blue);
   border-radius: 5px;
 }
