@@ -216,7 +216,6 @@ function Register() {
       <Head>
         <title>회원가입</title>
       </Head>
-
       <CommonWrapper>
         <RegisterWrapper>
           <h2>

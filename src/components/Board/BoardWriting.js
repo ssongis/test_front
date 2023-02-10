@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {use, useEffect, useState} from 'react';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import styled from 'styled-components';
@@ -9,58 +9,12 @@ import Header from '@/components/Header/Header';
 import { CommonWrapper } from '@/styles/style';
 import Link from 'next/link';
 
-export const BoardListWrapper = styled.main`
-hr{
-  margin: 0px;
-  padding: 0px;
-  height: 1px;
-  border: none;
-  background-color: rgb(234, 237, 239);
-}
-
-.item{
-  
-  position : relative;
-  width:100%;
-  height:250px;
-  padding:20px;
-}
-
-.title{
-  font-size:20px;
-  font-weight:bold;
-  position : relative;
-  width:100%;
-  margin-bottom:10px;
-}
-
-.content{
-  position : relative;
-  width:100%;
-  
-  
-  height:150px;
-}
-
-.nickname{
-  width:30%;
-  
-  float:left;
-}
-
-.regdate{
-  width:30%;
-  
-  float:left;
-}
-`
-
 export const BoardWrapper = styled.main`
 .BoardWriting {
   text-align: center;
 }
 
-.movie-container {
+.board-container {
   margin: 0 auto;
   width: 80%;
   border: 1px solid #333;
@@ -86,10 +40,10 @@ export const BoardWrapper = styled.main`
 }
 
 .submit-button {
-  width: 200px;
-  height: 50px;
-  font-size: 20px;
-  padding: 10px 20px;
+  width: 150px;
+  height: 45px;
+  font-size: 18px;
+  padding: 9px 20px;
   border: none;
   color: #fff;
   background-color: var(--base-color-blue);
@@ -102,13 +56,11 @@ const BoardWriting = props => {
   const [content, setContent] = useState({
     title: '',
     content: '',
+
   })
 
   // 스테이트에 저장된 내용 => 화면에 보여주기
   const [viewContent, setViewContent] = useState([]);
-
-  // => 목록에 보여주기
-  const [listContent, setListContent] =useState([]);
 
   // 인풋 내용이 변할 때 값을 뷰 스테이트에 업데이트 해 주는 기능
   const getValue = e => {
@@ -117,11 +69,13 @@ const BoardWriting = props => {
         [name]: value})
     console.log(content);
   };
+// problem: View랑 Write를 나눠서 GET x, POST는 됨 => 값을 가져와서 View에 보여주는 것 해결하기
+// View랑 Write 합치면 됨 => 주석 부분 지워서 확인
     return (
       <BoardWrapper>
         <div className="BoardWriting">
           <h1>자유 게시판</h1>
-          <div className='movie-container'>
+          {/* <div className='board-container'>
             {viewContent.map(element =>
               <div>
                 <h2>{element.title}</h2>
@@ -130,7 +84,7 @@ const BoardWriting = props => {
                 </div>
               </div>
             )}  
-          </div> 
+          </div>  */}
           <div className='form-wrapper'>
           <input className="title-input" type='text' placeholder='제목'
              onChange={getValue} name='title'/>
@@ -163,35 +117,8 @@ const BoardWriting = props => {
             }>글쓰기</button>
           </div>
         </div>
-        <BoardListWrapper>
-        <h1>게시판 목록</h1>
-        <hr/>
-        {/* 링크 게시판으로 이동하도록 바꾸기 */}
-            <Link href="/" legacyBehavior> 
-            <a>
-              <div className='item'>
-                <div className='title'>
-                  제목
-                </div>
-                <div className='content'>
-                  내용
-                </div>
-                <div className='nickname'>
-                  작성자
-                </div>
-                <div className='regdate'>
-                  작성날짜
-                </div>
-                <div className='reply'>
-                  댓글
-                </div>
-              </div>
-            </a>
-            </Link>
-            <hr/>
-        </BoardListWrapper>      
-        </BoardWrapper>
-        
+           
+        </BoardWrapper>     
       );
   }
 

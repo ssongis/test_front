@@ -6,6 +6,7 @@ import { CommonWrapper } from '@/styles/style';
 import styled from 'styled-components';
 import axios from 'axios';
 
+
 const User_Area = [
   {
     name: '비밀번호 재설정',

@@ -187,7 +187,7 @@ function WriteList({ writeList }) {
             </div>
           </li>
         </Link>
-        <Link href="/Board" legacyBehavior>
+        <Link href="/BoardList" legacyBehavior>
         <li>
           <svg
             xmlns="http://www.w3.org/2000/svg"
