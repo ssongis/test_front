@@ -8,7 +8,7 @@ function BoardViews() {
     return(
         <MainBlock>
             <Header/>
-            <BoardView/>
+             <BoardView/>
             <Footer/>
         </MainBlock>
     )

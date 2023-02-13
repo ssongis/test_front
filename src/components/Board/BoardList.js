@@ -1,55 +1,7 @@
 import {use, useEffect, useState} from 'react';
-import { CKEditor } from '@ckeditor/ckeditor5-react';
-import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
-import styled from 'styled-components';
-import parse from 'html-react-parser';
-import { MainBlock } from '@/components/CommunityMain/main.styles';
-import Footer from '@/components/Footer';
-import Header from '@/components/Header/Header';
-import { CommonWrapper } from '@/styles/style';
 import Link from 'next/link';
 
-export const BoardListWrapper = styled.main`
-hr{
-  margin: 0px;
-  padding: 0px;
-  height: 1px;
-  border: none;
-  background-color: rgb(234, 237, 239);
-}
-
-.item{
-  position : relative;
-  width:100%;
-  height:250px;
-  padding:20px;
-}
-
-.title{
-  font-size:20px;
-  font-weight:bold;
-  position : relative;
-  width:100%;
-  margin-bottom:10px;
-}
-
-.content{
-  position : relative;
-  width:100%;
-  height:120px;
-}
-
-.nickname{
-  width:30%;
-  float:left;
-}
-
-.regdate{
-  width:30%;
-  float:left;
-}
-`
-const BoardList = props => {
+export const BoardList = props => {
   // useState를 이용해 입력한 내용을 state에 저장
   const [content, setContent] = useState({
     title: '',
@@ -71,10 +23,8 @@ const BoardList = props => {
   };
 
     return (
-      <BoardListWrapper> 
-        <h1>게시판 목록</h1>
+      <>
         <hr/>
-        {/* 링크 게시판으로 이동하도록 바꾸기 */}
             <Link href="/BoardView" legacyBehavior> 
             <a>
               <div className='item'>
@@ -144,9 +94,7 @@ const BoardList = props => {
               </div>
             </a>
             </Link>
-            <hr/>
-      </BoardListWrapper>             
+            <hr/>   
+      </>        
       );
-  }
-
-  export default BoardList;
+  };
