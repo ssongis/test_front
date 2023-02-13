@@ -6,10 +6,6 @@ import Header from '@/components/Header/Header';
 import {BoardList} from '@/components/Board/BoardList';
 
 export const BoardListWrapper = styled.main`
-BoardList {
-    text-align: center;
-  }
-
 .hr{
   margin: 0px;
   padding: 0px;
@@ -36,12 +32,13 @@ BoardList {
 .content{
   position : relative;
   width:100%;
-  height:120px;
+  height:150px;
 }
 
 .nickname{
   width:30%;
   float:left;
+  margin-bottom:10px;
 }
 
 .regdate{
