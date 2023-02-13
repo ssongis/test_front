@@ -4,6 +4,7 @@ import { MainBlock } from '@/components/CommunityMain/main.styles';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header/Header';
 import {BoardList} from '@/components/Board/BoardList';
+import Paging from './Paging';
 
 export const BoardListWrapper = styled.main`
 .hr{
@@ -47,14 +48,21 @@ export const BoardListWrapper = styled.main`
 }
 `
 
+let style = {
+  margin:"20px 510px 20px", // 가운데 넣는 요소찾기
+  display:"inline-block",
+  width:"80%",
+  height:"40px",
+}
+
 function BoardLists() {
     return(
         <MainBlock>
             <Header/>
-            <BoardListWrapper>
-              <h2>게시물 목록</h2>
+            <h2 style={style}>게시물 목록</h2>
+              <BoardListWrapper>
                 <BoardList/>
-            </BoardListWrapper>
+              </BoardListWrapper>
             <Footer/>
         </MainBlock>
     )

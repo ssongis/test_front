@@ -1,5 +1,17 @@
 import {use, useEffect, useState} from 'react';
 import Link from 'next/link';
+import Paging from '@/pages/BoardList/Paging';
+import axios from 'axios';
+import {
+  Box,
+  Card,
+  CardActions,
+  CardContent,
+  Divider,
+  Button,
+  Typography,
+  Grid,
+} from "@mui/material";
 
 export const BoardList = props => {
   // useState를 이용해 입력한 내용을 state에 저장
@@ -11,15 +23,35 @@ export const BoardList = props => {
     reply:'',
   })
 
-  // 스테이트에 저장된 내용 => 화면에 보여주기
-  const [listContent, setListContent] = useState([]);
 
-  // 인풋 내용이 변할 때 값을 뷰 스테이트에 업데이트 해 주는 기능
-  const getValue = e => {
-      const {name, value} = e.target;
-      setContent({...content,
-        [name]: value})
-    console.log(content);
+  // 스테이트에 저장된 내용 => 화면에 보여주기
+  // const [listContent, setListContent] = useState([]);
+
+  const [products, setProducts] = useState([]);
+  const [count, setCount] = useState(0);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postPerPage] = useState(5);
+  const [indexOfLastPost, setIndexOfLastPost] = useState(0);
+  const [indexOfFirstPost, setIndexOfFirstPost] = useState(0);
+  const [currentPosts, setCurrentPosts] = useState(0);
+ 
+  useEffect(() => {
+    axios
+      .get("/product-sale-join")
+      .then((res) => {
+        setProducts(res.data);
+      })
+      .catch((error) => {
+        console.log("error", error);
+      });
+    setCount(products.length);
+    setIndexOfLastPost(currentPage * postPerPage);
+    setIndexOfFirstPost(indexOfLastPost - postPerPage);
+    setCurrentPosts(products.slice(indexOfFirstPost, indexOfLastPost));
+  }, [currentPage, indexOfLastPost, indexOfFirstPost, products, postPerPage]);
+ 
+  const setPage = (error) => {
+    setCurrentPage(error);
   };
 
     return (
@@ -48,7 +80,6 @@ export const BoardList = props => {
             </Link>
             <hr/>
             <hr/>
-        {/* 링크 게시판으로 이동하도록 바꾸기 */}
             <Link href="/BoardView" legacyBehavior> 
             <a>
               <div className='item'>
@@ -72,7 +103,6 @@ export const BoardList = props => {
             </Link>
             <hr/>
             <hr/>
-        {/* 링크 게시판으로 이동하도록 바꾸기 */}
             <Link href="/BoardView" legacyBehavior> 
             <a>
               <div className='item'>
@@ -95,6 +125,7 @@ export const BoardList = props => {
             </a>
             </Link>
             <hr/>   
+        <Paging page={currentPage} count={count} setPage={setPage}/>
       </>        
       );
   };

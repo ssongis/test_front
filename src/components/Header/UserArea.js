@@ -183,7 +183,7 @@ function WriteList({ writeList }) {
             </div>
             <div className="title">
               <h3>글쓰기</h3>
-              <p>자취러들과 일상을 공유해보세요.</p>
+              <p>자취러들과 일상을 공유하세요.</p>
             </div>
           </li>
         </Link>
@@ -264,7 +264,7 @@ function WriteList({ writeList }) {
           </svg>
           <div className="title">
             <h3>게시판 목록</h3>
-            <p>다양한 일상을 공유할 수 있어요.</p>
+            <p>다른 자취러들의 일상을 볼 수 있어요.</p>
           </div>
         </li>
         </Link>

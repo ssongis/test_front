@@ -2,10 +2,10 @@ import React from 'react';
 import { MainBlock } from '@/components/CommunityMain/main.styles';
 import Header from '@/components/Header/Header';
 import Footer from '@/components/Footer';
-import {BoardWriting} from '@/components/Board/BoardWriting';
+import {BoardUpdate} from '@/components/Board/BoardUpdate';
 import styled from 'styled-components';
 
-export const BoardWrapper = styled.main`
+export const BoardUpdateWrapper = styled.main`
 .BoardWriting {
   text-align: center;
 }
@@ -50,7 +50,6 @@ export const BoardWrapper = styled.main`
   background-color: var(--base-color-blue);
   border-radius: 5px;
   margin-right:10px;
-  margin-bottom:10px;
 }
 `
 let style = {
@@ -60,23 +59,22 @@ let style = {
   height:"40px",
 }
 
-function Board() {
+function BoardUpdate() {
     return(
         <MainBlock>
             <Header/>
-              <h2 style={style}>자유게시판</h2>
-              <BoardWrapper>
+              <h2 style={style}>게시물수정</h2>
+              <BoardUpdateWrapper>
                 <BoardWriting/>
-              </BoardWrapper>
+              </BoardUpdateWrapper>
             <Footer/>
         </MainBlock>
     )
 }
 
-Board.getInitialProps = async ctx => {
+BoardUpdate.getInitialProps = async ctx => {
     const pathname = ctx.pathname;
-  
     return { pathname };
   };
 
-export default Board;
+export default BoardUpdate;

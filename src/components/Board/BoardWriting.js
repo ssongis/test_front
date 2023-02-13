@@ -1,8 +1,6 @@
 import {use, useEffect, useState} from 'react';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
-import parse from 'html-react-parser';
-import Link from 'next/link';
 
 export const BoardWriting = props => {
   // useState를 이용해 입력한 내용을 state에 저장
@@ -21,11 +19,8 @@ export const BoardWriting = props => {
         [name]: value})
     console.log(content);
   };
-// problem: View랑 Write를 나눠서 GET x, POST는 됨 => 값을 가져와서 View에 보여주는 것 해결하기
-// View랑 Write 합치면 됨 => 주석 부분 지워서 확인
     return (
         <div className="BoardWriting">
-          {/* <h1>자유 게시판</h1> */}
           {/* <div className='board-container'>
             {viewContent.map(element =>
               <div>
@@ -61,15 +56,19 @@ export const BoardWriting = props => {
         />
           </div> 
           <div>
-            <button className="submit-button"
+          <a href="/BoardList">
+          <button className="submit-button" 
             onClick={()=>{
               setViewContent(viewContent.concat({...content}));
             }
-            }>글쓰기</button>
+            }>저장</button>
+          </a>
+          <a href="/">
+          <button className="submit-button" 
+            onClick="href=/">취소</button>
+          </a>
           </div>
         </div>
-           
       );
   }
-
   export default BoardWriting;
