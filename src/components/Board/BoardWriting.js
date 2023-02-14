@@ -32,8 +32,7 @@ export const BoardWriting = props => {
   // .then(res => res.json())
   // .then(result => {
   //     //console.log(result);
-  //     if (result.message) {
-          
+  //     if (result.message) {       
   //         alert(result.message);
   //     } else {
   //         alert('저장 성공!');

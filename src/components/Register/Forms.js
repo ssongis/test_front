@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { AGREE_DATA } from '@/constants/Register';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
+import { BASE_URL, USER } from "../../config/host-config";
 
 export const Forms = () => {
 
@@ -92,6 +93,9 @@ export const Forms = () => {
       .required('별명을 입력해주세요.'),
   });
 
+  const API_BASE_URL = BASE_URL + USER;
+
+  
   const formik = useFormik({
     // 회원가입 form, 최초 값, form에서 관리할 객체들
     initialValues: {
@@ -100,15 +104,33 @@ export const Forms = () => {
       confirm_password: '',
       username: '',
     },
+
+  
     // 유효성 검사
     validationSchema,
 
-    // submit 이벤트 발생 시 실행할 로직 기재
+    //submit 이벤트 발생 시 실행할 로직 기재
     onSubmit: values => {
-      alert(JSON.stringify(values, null, 2));
-    },
-  });
-
+      alert(JSON.stringify(values, ['email','address', 'password'], 2));
+      fetch(`${API_BASE_URL}/signup`, {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify(values, null, 2)
+    })
+    .then(res => res.json())
+    .then(result => {
+        //console.log(result);
+        if (result.message) {
+            // 로그인 실패
+            alert(result.message);
+        } else {
+            alert('회원가입 성공!');
+            window.location.href='/';
+        }
+    });
+    }
+  
+    });
   return (
     <div>
       <form onSubmit={formik.handleSubmit} >
@@ -123,13 +145,18 @@ export const Forms = () => {
                   placeholder="이메일"
                   name="email"
                   onChange={formik.handleChange}
-                  value={formik.values.email}
+                  value={formik.values.email} 
                   {...formik.getFieldProps('email')}
                 />
               </span>
               <span>@</span>
               <div className="select-area">
-                <select className="common-element">
+                <select className="common-element"
+                name="address"
+                value={formik.values.address}
+                onChange={formik.handleChange}
+                {...formik.getFieldProps('address')}
+                >
                   <option>선택해주세요</option>
                   <option value="naver.com">naver.com</option>
                   <option value="hanmail.net">hanmail.net</option>
