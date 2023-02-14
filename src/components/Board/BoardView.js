@@ -1,16 +1,21 @@
 import {useEffect, useState} from 'react';
 import parse from 'html-react-parser';
-import * as BaordWriting from './BoardWriting.js'; 
+import BaordWriting from './BoardWriting';
+import { getValue } from '@mui/system';
 
-export const BoardView = props => {
+export const BoardView = ({ history, location}) => {
   // useState를 이용해 입력한 내용을 state에 저장
   // const [content, setContent] = useState({
   //   title: '',
   //   content: '',
   // })
 
-  // 스테이트에 저장된 내용 => 화면에 보여주기
-  const [viewContent, setViewContent] = useState([]);
+  // // 스테이트에 저장된 내용 => 화면에 보여주기
+  // const [viewContent, setViewContent] = useState([]);
+
+  // useEffect(()=>{
+  //   setViewContent(getValue);
+  // },[])
 
   // // 인풋 내용이 변할 때 값을 뷰 스테이트에 업데이트 해 주는 기능
   // const getValue = e => {
@@ -24,14 +29,21 @@ export const BoardView = props => {
       <>
         <div className="Board">
           <div className='board-container'>
-            {viewContent.map(element =>
+            <div>
+            <label>제목</label>
+            </div>
+            <div>
+            <label>내용</label>
+            </div>
+          
+            {/* {viewContent.map(element =>
               <div>
                 <h2>{element.title}</h2>
                 <div>
                   {parse(element.content)}
                 </div>
               </div>
-            )}  
+            )}   */}
           </div> 
           {/*[미완] 로그인시 수정 취소 버튼 생성하게 만들기 */}
           <a href="/BoardList">

@@ -4,21 +4,8 @@ import Link from 'next/link';
 
 import { CommonWrapper } from '@/styles/style';
 import styled from 'styled-components';
-import axios from 'axios';
-
-
-const User_Area = [
-  {
-    name: '비밀번호 재설정',
-    path: '/',
-    id: 1,
-  },
-  {
-    name: '회원가입',
-    path: '/Register',
-    id: 2,
-  },
-];
+import { Loginform } from '../../components/Login/LoginForm';
+// import axios from 'axios';
 
 export const LoginWrapper = styled.main`
   display: flex;
@@ -136,6 +123,7 @@ export const Footer = styled.footer`
 `;
 
 function Login() {
+  
   return (
     <>
       <Head>
@@ -167,32 +155,7 @@ function Login() {
                 </a>
               </Link>
             </h2>
-            <div className="InputWrap">
-              <form>
-                <input
-                  id="user-email"
-                  label="email"
-                  placeholder="이메일"
-                  type="text"
-                  title="email"
-                />
-                <input
-                  id="user-pw"
-                  label="password"
-                  placeholder="비밀번호"
-                  type="password"
-                  title="password"
-                />
-                <button type="submit">로그인</button>
-                <section className="userArea">
-                  {User_Area.map(user => (
-                    <Link key={user.id} href={user.path} legacyBehavior>
-                      <a>{user.name}</a>
-                    </Link>
-                  ))}
-                </section>
-              </form>
-            </div>
+            <Loginform/>
             <section>
               <p className="desc">SNS계정으로 간편 로그인/회원가입</p>
               <div className="snsLoginInn">

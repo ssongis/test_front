@@ -1,6 +1,7 @@
 import {use, useEffect, useState} from 'react';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import parse from 'html-react-parser';
 
 export const BoardWriting = props => {
   // useState를 이용해 입력한 내용을 state에 저장
@@ -19,6 +20,7 @@ export const BoardWriting = props => {
         [name]: value})
     console.log(content);
   };
+
     return (
         <div className="BoardWriting">
           {/* <div className='board-container'>
@@ -56,13 +58,13 @@ export const BoardWriting = props => {
         />
           </div> 
           <div>
-          <a href="/BoardList">
+          {/* <a href="/BoardList"> */}
           <button className="submit-button" 
             onClick={()=>{
               setViewContent(viewContent.concat({...content}));
             }
-            }>저장</button>
-          </a>
+            }>작성</button>
+          {/* </a> */}
           <a href="/">
           <button className="submit-button" 
             onClick="href=/">취소</button>
@@ -71,4 +73,5 @@ export const BoardWriting = props => {
         </div>
       );
   }
+
   export default BoardWriting;

@@ -4,6 +4,47 @@ import { useFormik } from 'formik';
 import * as yup from 'yup';
 
 export const Forms = () => {
+
+  // const API_BASE_URL = BASE_URL + USER;
+
+  // const registerHandler = e => {
+  //     e.preventDefault();
+
+  //     // 이메일입력태그, 비번입력태그
+  //     const $email = document.getElementById('email');
+  //     const $password = document.getElementById('password');
+  //     const $nickname = document.getElementById('username');
+
+  //     // 서버에 로그인 요청
+  //     fetch(`${API_BASE_URL}/signup`, {
+  //         method: 'POST',
+  //         headers: { 'content-type': 'application/json' },
+  //         body: JSON.stringify({
+  //             email: $email.value,
+  //             password: $password.value,
+  //             nickname: $nickname.value
+  //         })
+  //     })
+  //     .then(res => res.json())
+  //     .then(result => {
+  //         //console.log(result);
+  //         if (result.message) {
+  //             // 로그인 실패
+  //             alert(result.message);
+  //         } else {
+  //             alert('회원가입 성공!');
+
+  //             // 발급받은 토큰을 저장, 회원정보 저장
+  //             // 브라우저가 제공 로컬스토리지(브라우저가 종료되어도 남아있음)
+  //             // 세션스토리지(브라우저종료되면 사라짐)
+  //             localStorage.setItem('ACCESS_TOKEN', result.token);
+  //             localStorage.setItem('LOGIN_USERNAME', result.userName);
+
+  //             window.location.href='/Login';
+  //         }
+  //     });
+  // };
+
   // 체크된 아이템 담을 배열
   const [checkItem, setCheckItem] = useState([]);
   // 체크박스 단일 선택
@@ -70,7 +111,7 @@ export const Forms = () => {
 
   return (
     <div>
-      <form onSubmit={formik.handleSubmit}>
+      <form onSubmit={formik.handleSubmit} >
         <fieldset>
           <div className="section email">
             <h4>이메일</h4>

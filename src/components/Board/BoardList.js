@@ -1,6 +1,6 @@
 import {use, useEffect, useState} from 'react';
 import Link from 'next/link';
-import Paging from '@/pages/BoardList/Paging';
+import Paging from '@/components/Board/Paging';
 import axios from 'axios';
 import {
   Box,

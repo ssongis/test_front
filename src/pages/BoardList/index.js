@@ -4,9 +4,12 @@ import { MainBlock } from '@/components/CommunityMain/main.styles';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header/Header';
 import {BoardList} from '@/components/Board/BoardList';
-import Paging from './Paging';
 
 export const BoardListWrapper = styled.main`
+BoardList {
+    text-align: center;
+  }
+
 .hr{
   margin: 0px;
   padding: 0px;
@@ -33,13 +36,12 @@ export const BoardListWrapper = styled.main`
 .content{
   position : relative;
   width:100%;
-  height:150px;
+  height:120px;
 }
 
 .nickname{
   width:30%;
   float:left;
-  margin-bottom:10px;
 }
 
 .regdate{
@@ -47,22 +49,15 @@ export const BoardListWrapper = styled.main`
   float:left;
 }
 `
-
-let style = {
-  margin:"20px 510px 20px", // 가운데 넣는 요소찾기
-  display:"inline-block",
-  width:"80%",
-  height:"40px",
-}
-
+ 
 function BoardLists() {
     return(
         <MainBlock>
             <Header/>
-            <h2 style={style}>게시물 목록</h2>
-              <BoardListWrapper>
+            <BoardListWrapper>
+              <h2>게시물 목록</h2>
                 <BoardList/>
-              </BoardListWrapper>
+            </BoardListWrapper>
             <Footer/>
         </MainBlock>
     )
