@@ -16,7 +16,6 @@ export const Loginform = () => {
           id: 2,
         },
       ];
-
     const API_BASE_URL = BASE_URL + USER;
 
     const loginHandler = e => {
@@ -43,7 +42,6 @@ export const Loginform = () => {
                 alert(result.message);
             } else {
                 alert('로그인 성공!');
-
                 // 발급받은 토큰을 저장, 회원정보 저장
                 // 브라우저가 제공 로컬스토리지(브라우저가 종료되어도 남아있음)
                 // 세션스토리지(브라우저종료되면 사라짐)

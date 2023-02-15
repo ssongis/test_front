@@ -9,5 +9,5 @@ if (hostname === 'localhost') {
 } 
 
 export const BASE_URL = backendHost;
-export const BOARD = '/jachi/board';
+export const BOARD = '/jachi/board/post';
 export const USER = '/jachi/user';
