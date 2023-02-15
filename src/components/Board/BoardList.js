@@ -14,18 +14,41 @@ import {
 } from "@mui/material";
 
 export const BoardList = props => {
-  // useState를 이용해 입력한 내용을 state에 저장
-  const [content, setContent] = useState({
+
+  // useState를 이용해 입력한 내용을 state에 저장, inputdata
+  const [inputListData, setInputListData] = useState([{
     title: '',
     content: '',
     nickname:'',
     regdate:'',
-    reply:'',
-  })
+    // reply:'',
+  }])
 
+  // 인풋 내용이 변할 때 값을 스테이트에 업데이트 해 주는 기능
+  const getValue = e => {
+    const {name, value} = e.target;
+    setInputListData({...inputListData,
+      [name]: value})
+  console.log(inputListData);
+};
 
-  // 스테이트에 저장된 내용 => 화면에 보여주기
-  // const [listContent, setListContent] = useState([]);
+const listHandler = () => {
+  fetch(`${API_BASE_URL}`, {
+    method: 'GET',
+    headers: { 'content-type': 'application/json' },
+    body: JSON.stringify(getValue)
+})
+.then(res => res.json()) 
+.then(result => {
+    //console.log(result);
+    if (result.message) {       
+        alert(result.message);
+    } else {
+        alert('이동');
+        window.location.href='/BoardView';
+    }
+});
+};
 
   const [products, setProducts] = useState([]);
   const [count, setCount] = useState(0);
@@ -54,77 +77,41 @@ export const BoardList = props => {
     setCurrentPage(error);
   };
 
+  // {viewContent.map(element =>
+  //   <div>
+  //     <h2>{element.title}</h2>
+  //     <div>
+  //       {parse(element.content)}
+  //     </div>
+  //   </div>
+  // )}  
     return (
       <>
         <hr/>
-            <Link href="/BoardView" legacyBehavior> 
-            <a>
+            <a onClick={listHandler}>
               <div className='item'>
                 <div className='title'>
                   제목
+                  <h2>{inputListData.map (element => element.title)}</h2>
                 </div>
                 <div className='content'>
-                  내용
+                   {inputListData.map (element => element.content)} 
                 </div>
                 <div className='nickname'>
-                  작성자
+                  작성자        
+                  {inputListData.map (element => element.nickname)}
                 </div>
                 <div className='regdate'>
-                  작성날짜
+                  작성날짜 
+                  {inputListData.map (element => element.regdate)}
                 </div>
-                <div className='reply'>
+                {/* <div className='reply'>
                   댓글
-                </div>
+                  {inputListData.map (element => element.reply)}
+                </div> */}
               </div>
             </a>
-            </Link>
             <hr/>
-            <hr/>
-            <Link href="/BoardView" legacyBehavior> 
-            <a>
-              <div className='item'>
-                <div className='title'>
-                  제목
-                </div>
-                <div className='content'>
-                  내용
-                </div>
-                <div className='nickname'>
-                  작성자
-                </div>
-                <div className='regdate'>
-                  작성날짜
-                </div>
-                <div className='reply'>
-                  댓글
-                </div>
-              </div>
-            </a>
-            </Link>
-            <hr/>
-            <hr/>
-            <Link href="/BoardView" legacyBehavior> 
-            <a>
-              <div className='item'>
-                <div className='title'>
-                  제목
-                </div>
-                <div className='content'>
-                  내용
-                </div>
-                <div className='nickname'>
-                  작성자
-                </div>
-                <div className='regdate'>
-                  작성날짜
-                </div>
-                <div className='reply'>
-                  댓글
-                </div>
-              </div>
-            </a>
-            </Link>
-            <hr/>   
         <Paging page={currentPage} count={count} setPage={setPage}/>
       </>        
       );

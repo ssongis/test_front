@@ -160,31 +160,3 @@ export const UserAreaBlock = styled.div`
     font-size: 18px;
   }
 `;
-
-// 카테고리
-// export const CateWrap = styled.div`
-//   width: 100%;
-//   padding: 5px 0;
-//   border-bottom: 1px solid #eaedef;
-//   .cate {
-//     max-width: 1136px;
-//     margin: 0 auto;
-//     display: flex;
-//     justify-content: space-between;
-//     align-items: center;
-//     font-weight: 700;
-//     ul {
-//       display: flex;
-//       padding: 12px 0;
-//       gap: 15px;
-//       li {
-//         color: #2f3438;
-//         cursor: pointer;
-//         list-style: none;
-//         a:hover {
-//           color: var(--base-color-blue);
-//         }
-//       }
-//     }
-//   }
-// `;

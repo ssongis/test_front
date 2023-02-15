@@ -3,7 +3,6 @@ import styled from 'styled-components';
 
 import { IoChevronDown } from 'react-icons/io5';
 import { useRouter } from 'next/router';
-
 import { USER_AREA } from '../../constants/Header';
 import { useState } from 'react';
 
